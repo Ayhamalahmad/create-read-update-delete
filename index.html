@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/sass/main.css" />
+    <link
+      rel="shortcut icon"
+      href="imges/icons8-quiz-100.png"
+      type="image/x-icon"
+    />
+    <title>Database</title>
+  </head>
+  <body>
+    <div class="container">
+      <button class="btn add-user">add user</button>
+      <!-- start form -->
+      <form for="" class="user-information">
+        <label>name</label>
+        <input class="ipt name" type="text" placeholder="name" />
+        <label>email</label>
+        <input class="ipt email" type="email" placeholder="email" />
+        <label>phone</label>
+        <input class="ipt phone" type="text" placeholder="phone" />
+        <label>password</label>
+        <input class="ipt password" type="password" placeholder="password" />
+      <button class="btn save">save</button>
+      <button class="btn save-updates">save update</button>
+      </form>
+      <!-- Start database -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>First</th>
+            <th>email</th>
+            <th>phone</th>
+            <th>password</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th>1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+            <td>@mdo</td>
+            <td> <div class="operations">
+              <button>update</button>
+              <button>delete</button>
+            </div>
+          </td>
+          </tr>
+          <tr>
+            <th >2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+            <td>@fat</td>
+
+            <td> <div class="Operations">
+              <button>update</button>
+              <button>delete</button>
+            </div>
+          </td>
+          </tr>
+          <tr>
+            <th >3</th>
+            <td > the Bird</td>
+            <td > the Bird</td>
+            <td> ter</td>
+            <td> ter</td>
+
+            <td> <div class="Operations">
+              <button>update</button>
+              <button>delete</button>
+            </div>
+          </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="javascript/index.js"></script>
+    <script src="javascript/all.min.js"></script>
+  </body>
+</html>

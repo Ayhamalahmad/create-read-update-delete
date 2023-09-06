@@ -1,0 +1,15 @@
+@use "../utils/variables" as *;
+body {
+  min-height: 100vh;
+  font: {
+    family: Tahoma;
+  }
+}
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}

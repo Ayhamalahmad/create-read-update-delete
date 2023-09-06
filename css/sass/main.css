@@ -1,0 +1,45 @@
+body {
+  min-height: 100vh;
+  font-family: Tahoma;
+}
+
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  -o-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  margin: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width:768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width:992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width:1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/*Start Footer*/
+/*End Footer*//*# sourceMappingURL=main.css.map */
