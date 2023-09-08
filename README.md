@@ -1,6 +1,7 @@
 # create read update delete
 
-This is a simple user management web application that allows you to add, edit, and delete user information. You can access the web app through this [link](https://ayhamalahmad.github.io/task-10-add-user/).
+
+This is a simple user create read update delete application that allows you to add, edit, and delete user information. You can access the web app through this [link](https://ayhamalahmad.github.io/create-read-update-delete/).
 
 ## Features
 
