@@ -35,7 +35,10 @@ This is a simple user create read update delete application that allows you to a
 The web app is developed using SCSS (Sass), HTML, and JavaScript for its functionality. The main elements and event listeners are defined in the JavaScript code.
 
 ### SCSS (Sass) Styles
+
 - The styling for the web app is written in SCSS (Sass) and organized into various modules and components.
+- 
+- styles are applied to create a visually appealing and responsive layout
 
 ```scss
 @use "../sass/pages/globalpage" as *;
@@ -52,8 +55,6 @@ The web app is developed using SCSS (Sass), HTML, and JavaScript for its functio
 - The user interface is built using HTML and includes input fields for user information and a table to display user data.
 - Buttons for adding, saving, updating, and canceling actions are also included in the HTML structure.
 
-### CSS Styling
-- CSS styles are applied to create a visually appealing and responsive layout.
 
 ### JavaScript Logic
 - JavaScript handles user interactions, including adding, editing, and deleting users.
