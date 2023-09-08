@@ -1,86 +1,148 @@
 // Buttons
 let addUserBtn = document.querySelector(".add-user");
 let saveBtn = document.querySelector(".save");
-let deleteBtn = document.querySelector(".delete-btn");
 let updateBtn = document.querySelector(".update-btn");
+let cancelBtn = document.querySelector(".c-cancel");
 // Inputs
 let userNformationInputs = document.querySelectorAll(".user-information input");
-// add User Btn
-addUserBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-});
-// save Btn
-saveBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  // Get a reference to the table body where you want to append the data
-  const tableBody = document.querySelector(".table tbody");
-  // Create a new table row
-  const newRow = document.createElement("tr");
+let iNmae = document.querySelector(".name");
+let iEmail = document.querySelector(".email");
+let iphone = document.querySelector(".phone");
+let ipassword = document.querySelector(".password");
+//
+let table = document.querySelector("tbody");
+let body = document.querySelector("body");
+let container = document.querySelector(".container");
+// masseges
+let massege = document.querySelector(".massege");
+let confrimDelete = document.querySelector(".confrim-delete");
+//
+let formData = {};
+let recentlyCell = null;
+let allIempty = false;
+let confrimDelOp = false;
+let rowEle;
+// function get data from inputs
+const getDataFromInputs = () => {
+  formData["name"] = iNmae.value;
+  formData["email"] = iEmail.value;
+  formData["phone"] = iphone.value;
+  formData["password"] = ipassword.value;
+  return formData;
+};
+// Function to insert data into the table
+const inserData = (data) => {
+  let newRow = table.insertRow(table.lenght);
+  let userId = newRow.insertCell(0);
+  userId.textContent = Date.now();
+  let userName = newRow.insertCell(1);
+  userName.textContent = data.name;
+  let userEmail = newRow.insertCell(2);
+  userEmail.textContent = data.email;
+  let userPhone = newRow.insertCell(3);
+  userPhone.textContent = data.phone;
+  let userPassword = newRow.insertCell(4);
+  userPassword.textContent = data.password;
+  // operations buttons
+  let operations = newRow.insertCell(5);
+  operations.classList.add("operations");
+  const deleteButton = document.createElement("button");
+  deleteButton.classList.add("delete-btn");
+  deleteButton.classList.add("btn");
+  deleteButton.textContent = "Delete";
+  // Append the button element to the table cell
+  operations.appendChild(deleteButton);
+
+  const editeButton = document.createElement("button");
+  editeButton.classList.add("edit-btn");
+  editeButton.classList.add("btn");
+  editeButton.textContent = "edit";
+  // Append the button element to the table cell
+  operations.appendChild(editeButton);
   // Add Unique ID
   newRow.setAttribute("id", Date.now());
-  // Create a new table header cell for the ID
-  const idCell = document.createElement("th");
-  idCell.textContent = Date.now(); // generate a unique ID
-  // Append the ID cell to the new row
-  newRow.appendChild(idCell);
-  // Iterate through the userNformationInputs and create table data cells
-  userNformationInputs.forEach((input) => {
-    const newCell = document.createElement("td");
-    newCell.textContent = input.value;
-    newRow.appendChild(newCell);
-  });
-  // Create Operations th
-  const OperationsCell = document.createElement("th");
-  // Create Operations Conatiner
-  const OperationsContainer = document.createElement("div");
-  // Add class TO OperationsContainer
-  OperationsContainer.classList.add("operations");
-  // Create Update Button
-  const updateBtn = document.createElement("button");
-  // Add Text To The Button
-  updateBtn.textContent = "update";
-  // Add Class Nmae To updateBtn
-  updateBtn.classList.add("update-btn");
-  updateBtn.classList.add("btn");
-  // Add updateBtn To   OperationsContainer
-  OperationsContainer.append(updateBtn);
-  // Create Delete Button
-  const deleteBtn = document.createElement("button");
-  // Add Text To The Button
-  deleteBtn.textContent = "Delete";
-  // Add Class Nmae To deleteBtn
-  deleteBtn.classList.add("delete-btn");
-  deleteBtn.classList.add("btn");
-  // Add deleteBtn To   OperationsContainer
-  OperationsContainer.append(deleteBtn);
-  // Add OperationsCell To newRow
-  OperationsCell.appendChild(OperationsContainer);
-  // Add OperationsCell To newRow
-  newRow.appendChild(OperationsCell);
-
-  tableBody.appendChild(newRow);
+};
+// Function to reset input fields
+const resetInputs = () => {
+  iNmae.value = "";
+  iEmail.value = "";
+  iphone.value = "";
+  ipassword.value = "";
+};
+// Function to populate input fields with data from the selected table row for editing
+const populateEditFields = (td) => {
+  recentlyCell = td.parentElement.parentElement;
+  iNmae.value = recentlyCell.cells[1].textContent;
+  iEmail.value = recentlyCell.cells[2].textContent;
+  iphone.value = recentlyCell.cells[3].textContent;
+  ipassword.value = recentlyCell.cells[4].textContent;
+};
+// Function to update the table row with the edited data
+const upDate = () => {
+  recentlyCell.cells[1].textContent = formData.name;
+  recentlyCell.cells[2].textContent = formData.email;
+  recentlyCell.cells[3].textContent = formData.phone;
+  recentlyCell.cells[4].textContent = formData.password;
+};
+// Function to delete data from the table
+const deleleData = (td) => {
+  let row = td.parentElement.parentElement;
+  table.deleteRow(row.rowIndex);
+  resetInputs();
+};
+// Event listener for the "Save" button
+saveBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (
+    (iNmae.value.trim() !== "",
+    iEmail.value.trim() !== "",
+    iphone.value.trim() !== "",
+    ipassword.value.trim() !== "")
+  ) {
+    allIempty = true;
+    massege.classList.remove("active");
+  } else {
+    allIempty = false;
+    massege.classList.add("active");
+  }
+  if (allIempty) {
+    getDataFromInputs();
+    if (recentlyCell == null) {
+      inserData(formData);
+    } else {
+      upDate(formData);
+      resetInputs();
+      recentlyCell = null;
+    }
+    resetInputs();
+  }
 });
-// Add a click event listener to the <tbody> element of the table
-document.querySelector(".table tbody").addEventListener("click", (ele) => {
-  // Check if the clicked element has the "delete-btn" class
-  if (ele.target.classList.contains("delete-btn")) {
-    // Find the closest <tr> element (table row) that contains the clicked element
-    const row = ele.target.closest("tr");
+// Event listener for buttons inside the container
+container.addEventListener("click", (event) => {
+  if (event.target.classList.contains("c-btn")) {
+    confrimDelOp = true;
+  }
+  if (event.target.classList.contains("edit-btn")) {
+    populateEditFields(event.target);
+  }
+  if (event.target.classList.contains("delete-btn")) {
+    body.classList.add("active");
+    confrimDelete.classList.add("active");
+    const row = event.target.closest("tr");
     // Get the ID attribute value of the row
     const rowId = row.getAttribute("id");
-    // Log the ID of the row to the console
-    console.log("Row ID:", rowId);
     // Get a reference to the row element using its ID
-    const rowEle = document.getElementById(rowId);
-    // Log the row element to the console
-    console.log(rowEle);
+    rowEle = document.getElementById(rowId);
+  }
+  if (
+    event.target.classList.contains("c-cancel") ||
+    event.target.classList.contains("c-btn")
+  ) {
+    body.classList.remove("active");
+    confrimDelete.classList.remove("active");
+  }
+  if (event.target.classList.contains("c-btn")) {
     // Remove (delete) the row element from the DOM
     rowEle.remove();
-  }
-
-  // Update
-  if(ele.target.classList.contains("update")){
-       // Find the closest <tr> element (table row) that contains the clicked element
-       const row = ele.target.closest("tr");
   }
 });

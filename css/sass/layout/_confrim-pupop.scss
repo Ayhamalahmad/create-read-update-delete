@@ -1,0 +1,47 @@
+@use "../utils/variables" as *;
+.confrim-delete{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 40px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $primary;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 99;
+    display: none;
+    line-height: 1.7;
+    animation: opacityAnimtion 0.3s ease-in-out;
+    @media #{$maxMobile} {
+        width: 90%;
+    }
+    &.active{
+        display: flex;
+    }
+    svg{
+        font-size: 60px;
+        color: $dark-red;
+    }
+    .c-massege{}
+    .btns-container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        gap: 10px;
+        .c-btn{}
+        .c-cancel{}
+      }
+}
+@keyframes opacityAnimtion {
+    0% {
+      opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }

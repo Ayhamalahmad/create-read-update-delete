@@ -1,0 +1,70 @@
+@use "../utils/variables" as *;
+.t-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  overflow: hidden;
+  overflow-x: scroll;
+  .table {
+    border-collapse: collapse;
+    width: 100%;
+    //thead
+    thead {
+      tr {
+        background-color: $teal;
+        color: $light;
+        text-transform: capitalize;
+        th {
+          padding: 20px 10px;
+        }
+      }
+    }
+    // tbody
+    tbody {
+      tr {
+        &:not(:last-child) {
+          border-bottom: 1px solid $primary;
+        }
+        th {
+        }
+        td {
+          padding: 10px;
+          background-color: $primary;
+          color: $SteelGray;
+        }
+        .operations {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          justify-content: center;
+        }
+      }
+    }
+  }
+  
+}
+/* width */
+.t-container::-webkit-scrollbar {
+  margin-top: 5px;
+  width: 5px;
+  height: 10px;
+}
+
+/* Track */
+.t-container::-webkit-scrollbar-track {
+  background: $primary;
+  
+}
+
+/* Handle */
+.t-container::-webkit-scrollbar-thumb {
+  background: $SteelGray;
+  border-radius: 15px;
+}
+
+/* Handle on hover */
+.t-container::-webkit-scrollbar-thumb:hover {
+  background: $dark-grayish-purple;
+}

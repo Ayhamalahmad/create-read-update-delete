@@ -1,9 +1,14 @@
-@use "../sass/utils/variables" as *;
-@use "../sass/base/typography" as *;
-@use "../sass/utils/mixins" as *;
-@use "../sass/utils/functions" as *;
 @use "../sass/pages/globalpage" as *;
+
+@use "../sass/utils/variables" as *;
+@use "../sass/utils/mixins" as *;
+
+@use "../sass/components/buttons" as *;
+
 @use "../sass/layout/grid" as *;
-@use "../sass/layout/header" as *;
-@use "../sass/pages/home" as *;
-@use "../sass/layout/footer" as *;
+
+@use "../sass/layout/form" as *;
+
+@use "../sass/layout/table" as *;
+
+@use "../sass/layout/confrim-pupop" as *;

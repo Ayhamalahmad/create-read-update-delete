@@ -1,5 +1,7 @@
 // Media
 // Max
+
+$extraSmall: "(max-width:576px)";
 $maxMobile: "(max-width:767px)";
 $maxSmall: "(max-width:991px)";
 // Min
@@ -8,10 +10,18 @@ $minMedium: "(min-width:992px)";
 $minLarge: "(min-width:1200px)";
 
 // Colors
-$primaryRed: #e2494c;
-$grayishSilver: #9c9c9c;
+$primary: #eee;
+$slate-gray: #a8b3bc;
+$teal: #43655a;
+$dark-red: #b00003;
+$dark-blue-gray: #2f4858;
+$light-lavender-gray: #aca7cb;
+//
+$primary: #eee;
 $light: #fff;
-$lightGray: #ddd;
-$darkerGray: #d1d1d1;
-$darkGray: #888;
-$darkBlueColor: #2f4858;
+$Lavender: #faf7ff;
+$dark-grayish-purple: #474554;
+$SteelGray: #5f5c6d;
+$Periwinkle: #8685ef;
+$dark-red: #b00003;
+$DarkMaroon: #6e0000;

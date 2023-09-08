@@ -1,6 +1,17 @@
 body {
-  min-height: 100vh;
+  height: 100%;
   font-family: Tahoma;
+}
+body.active::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.48);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 10;
 }
 
 ul,
@@ -13,10 +24,55 @@ a {
   text-decoration: none;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #5f5c6d;
+  border-radius: 15px;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #474554;
+}
+
+.btn {
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  color: #fff;
+  background-color: #474554;
+}
+.btn:hover {
+  background-color: #5f5c6d;
+}
+.btn.delete-btn {
+  background-color: #b00003;
+  color: #fff;
+}
+.btn.delete-btn:hover {
+  background-color: #6e0000;
+}
+
 * {
   -o-box-sizing: border-box;
   -ms-box-sizing: border-box;
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 .container {
@@ -24,6 +80,7 @@ a {
   margin: auto;
   padding-left: 15px;
   padding-right: 15px;
+  margin-top: 30px;
 }
 @media (min-width:768px) {
   .container {
@@ -41,5 +98,158 @@ a {
   }
 }
 
-/*Start Footer*/
-/*End Footer*//*# sourceMappingURL=main.css.map */
+.user-information {
+  display: flex;
+  flex-direction: column;
+}
+.user-information label {
+  padding: 10px 0;
+  text-transform: capitalize;
+  color: #5f5c6d;
+}
+.user-information input {
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #eee;
+  color: #5f5c6d;
+}
+.user-information input:not(:last-child) {
+  margin-bottom: 10px;
+}
+.user-information input:focus {
+  outline: none;
+}
+.user-information input::-moz-placeholder {
+  text-transform: capitalize;
+  color: #5f5c6d;
+}
+.user-information input::placeholder {
+  text-transform: capitalize;
+  color: #5f5c6d;
+}
+.user-information .save {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+  margin-top: 10px;
+}
+@media (max-width:576px) {
+  .user-information .save {
+    width: 100%;
+  }
+}
+.user-information .massege {
+  margin: 10px;
+  color: #b00003;
+  font-weight: bold;
+  display: none;
+}
+.user-information .massege.active {
+  display: block;
+}
+
+.t-container {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  overflow: hidden;
+  overflow-x: scroll;
+}
+.t-container .table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.t-container .table thead tr {
+  background-color: #43655a;
+  color: #fff;
+  text-transform: capitalize;
+}
+.t-container .table thead tr th {
+  padding: 20px 10px;
+}
+.t-container .table tbody tr:not(:last-child) {
+  border-bottom: 1px solid #eee;
+}
+.t-container .table tbody tr td {
+  padding: 10px;
+  background-color: #eee;
+  color: #5f5c6d;
+}
+.t-container .table tbody tr .operations {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: center;
+}
+
+/* width */
+.t-container::-webkit-scrollbar {
+  margin-top: 5px;
+  width: 5px;
+  height: 10px;
+}
+
+/* Track */
+.t-container::-webkit-scrollbar-track {
+  background: #eee;
+}
+
+/* Handle */
+.t-container::-webkit-scrollbar-thumb {
+  background: #5f5c6d;
+  border-radius: 15px;
+}
+
+/* Handle on hover */
+.t-container::-webkit-scrollbar-thumb:hover {
+  background: #474554;
+}
+
+.confrim-delete {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 40px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 99;
+  display: none;
+  line-height: 1.7;
+  animation: opacityAnimtion 0.3s ease-in-out;
+}
+@media (max-width:767px) {
+  .confrim-delete {
+    width: 90%;
+  }
+}
+.confrim-delete.active {
+  display: flex;
+}
+.confrim-delete svg {
+  font-size: 60px;
+  color: #b00003;
+}
+.confrim-delete .btns-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 10px;
+}
+@keyframes opacityAnimtion {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}/*# sourceMappingURL=main.css.map */
